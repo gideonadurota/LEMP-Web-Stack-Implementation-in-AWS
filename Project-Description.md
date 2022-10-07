@@ -71,3 +71,10 @@ On Ubuntu 20.04, Nginx has one server block enabled by default and is configured
 
 `sudo mkdir /var/www/projectLEMP`
 
+* Next, assign ownership of the directory with the *$USER* environment variable, which will reference your current system user:
+
+`sudo chown -R $USER:$USER /var/www/projectLEMP`
+
+* Create and open a new configuration file in Apache’s *sites-available* directory using nano
+
+`sudo nano /etc/nginx/sites-available/projectLEMP.conf`

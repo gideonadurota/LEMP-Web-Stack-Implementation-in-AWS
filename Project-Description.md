@@ -99,3 +99,11 @@ This will tell Nginx to use the configuration next time it is reloaded.
 
 The new website is now active, but the web root */var/www/projectLEMP* is still empty. Create an *index.html* file in that location so that we can test that your new server block works as expected:
 
+`sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html`
+
+* Now go to your browser and try to open your website URL using IP address:
+
+`http://<Public-IP-Address>:80`
+
+## 6. Testing PHP With NGINX ##
+

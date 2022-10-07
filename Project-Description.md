@@ -12,6 +12,8 @@ Prerequisites:
 * I created a free tier instance adding security rules for ssh (port 22) and http (port 80)
 * I downloaded the ssh key 
 
+![Screenshot](https://github.com/gideonadurota/LEMP-Web-Stack-Implementation-in-AWS/blob/main/Screenshot/Capture.PNG)
+
 ## 2. Install NGINX server ##
 
 * I launched terminal and ran the command below to give the necessary permissions to the pem file
@@ -28,11 +30,15 @@ Prerequisites:
 `sudo apt install nginx -y`
 `sudo systemctl status nginx`
 
+![screenshot](https://github.com/gideonadurota/LEMP-Web-Stack-Implementation-in-AWS/blob/main/Screenshot/nginx%20status.PNG)
+
 * I confirmed that I could reach the apache website on localhost 
 
 `curl http://localhost:80`
 
 * I got the public ip address of the server using the command `curl -s http://169.254.169.254/latest/meta-data/public-ipv4` and navigated to the address on my browser.
+
+![screenshot](https://github.com/gideonadurota/LEMP-Web-Stack-Implementation-in-AWS/blob/main/Screenshot/nginx%20on%20browser.PNG)
 
 ## 3. Install MySql DB ##
 
@@ -131,6 +137,8 @@ The new website is now active, but the web root */var/www/projectLEMP* is still 
 
 `http://<Public-IP-Address>:80`
 
+![screenshot](https://github.com/gideonadurota/LEMP-Web-Stack-Implementation-in-AWS/blob/main/Screenshot/nginx%20after%20echo.PNG)
+
 ## 6. Testing PHP With NGINX ##
 
 At this point, the LEMP stack is completely installed and fully operational.
@@ -145,7 +153,3 @@ You can now access this page in your web browser by visiting the domain name or 
 * Remove the file as it contains some sensitive information
 
 `sudo rm /var/www/projectLEMP/info.php`
-
-## 7. Retrieving data from MySQL database with PHP ##
-
-

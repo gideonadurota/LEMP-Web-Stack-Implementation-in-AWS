@@ -79,6 +79,32 @@ On Ubuntu 20.04, Nginx has one server block enabled by default and is configured
 
 `sudo nano /etc/nginx/sites-available/projectLEMP`
 
+* Paste teh following configurations inside the file and save
+
+```
+server {
+    listen 80;
+    server_name projectLEMP www.projectLEMP;
+    root /var/www/projectLEMP;
+
+    index index.html index.htm index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+     }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+}
+```
+
 * Activate your configuration by linking to the config file from Nginx’s *sites-enabled* directory:
 
 `sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
@@ -106,4 +132,20 @@ The new website is now active, but the web root */var/www/projectLEMP* is still 
 `http://<Public-IP-Address>:80`
 
 ## 6. Testing PHP With NGINX ##
+
+At this point, the LEMP stack is completely installed and fully operational.
+
+You can test it to validate that Nginx can correctly handle .php files off to your PHP processor.
+You can do this by creating a test PHP file in your document root. Open a new file called info.php within your document root in your text editor:
+
+`nano /var/www/projectLEMP/info.php`
+
+You can now access this page in your web browser by visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by */info.php*:
+
+* Remove the file as it contains some sensitive information
+
+`sudo rm /var/www/projectLEMP/info.php`
+
+## 7. Retrieving data from MySQL database with PHP ##
+
 

@@ -24,3 +24,12 @@ Prerequisites:
 
 * In order to install NGINX server, first I updated the packages on the ubuntu server
 
+`sudo apt update -y`
+`sudo apt install nginx -y`
+`sudo systemctl status nginx`
+
+* I confirmed that I could reach the apache website on localhost 
+
+`curl http://localhost:80`
+
+* I got the public ip address of the server using the command `curl -s http://169.254.169.254/latest/meta-data/public-ipv4` and navigated to the address on my browser.

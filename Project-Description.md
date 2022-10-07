@@ -77,4 +77,25 @@ On Ubuntu 20.04, Nginx has one server block enabled by default and is configured
 
 * Create and open a new configuration file in Apache’s *sites-available* directory using nano
 
-`sudo nano /etc/nginx/sites-available/projectLEMP.conf`
+`sudo nano /etc/nginx/sites-available/projectLEMP`
+
+* Activate your configuration by linking to the config file from Nginx’s *sites-enabled* directory:
+
+`sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
+
+This will tell Nginx to use the configuration next time it is reloaded. 
+
+* You can test your configuration for syntax errors by typing:
+
+`sudo nginx -t`
+
+* We also need to disable default Nginx host that is currently configured to listen on port 80, for this run:
+
+`sudo unlink /etc/nginx/sites-enabled/default`
+
+* Reload nginx to apply changes
+
+`sudo systemctl reload nginx`
+
+The new website is now active, but the web root */var/www/projectLEMP* is still empty. Create an *index.html* file in that location so that we can test that your new server block works as expected:
+
